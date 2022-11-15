@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 # bis620.2022
 
 <!-- badges: start -->
-
+[![R-CMD-check](https://github.com/JadenWSR/bis620.2022/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/JadenWSR/bis620.2022/actions/R-CMD-check.yaml) [![lint](https://github.com/JadenWSR/bis620.2022/workflows/lint.yaml/badge.svg)](https://github.com/JadenWSR/bis620.2022/actions/workflows/lint.yaml)
 <!-- badges: end -->
 
 The goal of bis620.2022 is to ...
