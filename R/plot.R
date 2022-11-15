@@ -11,17 +11,17 @@
 #' data(ukb_accel)
 #' accel_plot(ukb_accel[1:1000,])
 #' @export
-accel_plot = function(x) {
+accel_plot <- function(x) {
   if ("time" %in% colnames(x)) {
-    col = "time"
+    col <- "time"
   } else if ("freq" %in% colnames(x)) {
-    col = "freq"
+    col <- "freq"
   } else {
     stop("A `time` or a `freq` column must appear in the data.")
   }
   x |>
-    pivot_longer(-all_of(col)) |>
-    ggplot(aes_string(x = col, y = "value")) +
-      geom_line() +
-      facet_grid(name ~ .)
+    tidyr::pivot_longer(-tidyr::all_of(col)) |>
+    ggplot2::ggplot(ggplot2::aes_string(x = col, y = "value")) +
+    ggplot2::geom_line() +
+    ggplot2::facet_grid(name ~ .)
 }
