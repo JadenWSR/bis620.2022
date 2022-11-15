@@ -5,8 +5,10 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/JadenWSR/bis620.2022/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/JadenWSR/bis620.2022/actions/R-CMD-check.yaml)
-[![lint](https://github.com/JadenWSR/bis620.2022/workflows/lint.yaml/badge.svg)](https://github.com/JadenWSR/bis620.2022/actions/workflows/lint.yaml)
+[![R-CMD-check](https://github.com/JadenWSR/bis620.2022/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/JadenWSR/bis620.2022/actions/R-CMD-check.yaml)
+[![lint](https://github.com/JadenWSR/bis620.2022/actions/workflows/lint.yaml/badge.svg)](https://github.com/JadenWSR/bis620.2022/actions/workflows/lint.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/JadenWSR/bis620.2022/branch/main/graph/badge.svg)](https://app.codecov.io/gh/JadenWSR/bis620.2022?branch=main)
 <!-- badges: end -->
 
 The goal of bis620.2022 is to …
