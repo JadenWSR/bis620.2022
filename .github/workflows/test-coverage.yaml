@@ -48,3 +48,6 @@ jobs:
         with:
           name: coverage-test-failures
           path: ${{ runner.temp }}/package
+
+    after_success:
+      - bash <(curl -s https://codecov.io/bash)
