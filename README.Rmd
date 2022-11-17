@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 [![codecov](https://codecov.io/gh/JadenWSR/bis620.2022/branch/main/graph/badge.svg?token=YSM7UN1LKF)](https://codecov.io/gh/JadenWSR/bis620.2022)
 <!-- badges: end -->
 
-The goal of bis620.2022 is to ...
+The goal of bis620.2022 is to provide functions for the users to acquire UKBiobank accelerometry data, get the spectral signature for the data with three dimensions using Fast Fourier Transform (FFT) and visualize the resulting times-series/frequency data.
 
 ## Installation
 
@@ -31,4 +31,38 @@ You can install the development version of bis620.2022 from [GitHub](https://git
 ``` r
 # install.packages("devtools")
 devtools::install_github("JadenWSR/bis620.2022")
+```
+## Examples
+
+```{r}
+library(bis620.2022)
+```
+
+### Get UKBiobank accelerometry data
+
+```{r}
+data(ukb_accel)
+head(ukb_accel)
+```
+
+### accel_plot()
+
+This function plots UKBiobank accelerometry data.
+
+```{r}
+accel_plot(ukb_accel[1:1000,])
+```
+
+### spectral_signature()
+
+This function is used to get the Spectral Signature of Accelerometry Data.
+The spectral signature is calculated by taking the modulus of the Fourier
+coefficients of the signal.
+
+```{r}
+ukb_accel[1:1000,] |> spectral_signature(take_log = T)
+```
+
+```{r}
+ukb_accel[1:1000,] |> spectral_signature(take_log = T) |> accel_plot()
 ```
