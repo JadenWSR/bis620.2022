@@ -16,15 +16,14 @@ test_that(
 )
 
 test_that(
-  "The spectral_signature() takes log for X, Y and Z columns when take_log = TRUE.",
+  "The spectral_signature() takes log for X, Y and Z columns when
+  take_log = TRUE.",
   {
     data(ukb_accel)
-    # take_log = TRUE
     df <- ukb_accel[1:100, ] |>
       spectral_signature(take_log = TRUE) |>
       select(X, Y, Z)
 
-    # take log manually
     df_log <-  ukb_accel[1:100, ] |>
       spectral_signature() |>
       select(X, Y, Z) |>
@@ -33,4 +32,3 @@ test_that(
     expect_equal(df, df_log)
   }
 )
-
