@@ -1,0 +1,52 @@
+---
+title: "bis620"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{bis620}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(bis620.2022)
+```
+## Team Members
+- Lang Ding (ld698)
+- Shurui Wang (sw2349)
+
+## Background and motivation
+
+### Data Description
+
+The dataset comes from the NCT00364013 study on clinicaltrials.gov named ‘[PRIME: Panitumumab Randomized Trial In Combination With Chemotherapy for Metastatic Colorectal Cancer to Determine Efficacy](https://clinicaltrials.gov/ct2/show/NCT00364013)’ This study was to assess whether panitumumab in combination with FOLFOX chemotherapy improves PFS compared to FOLFOX alone as first-line therapy for mCRC among subjects with wild-type KRAS tumors and subjects with mutant KRAS tumors. The dataset contains 7 tables, which are `adae`, `adlb`, `adls`, `adpm`, `adrsp`, `adsl`, and `biomark`. In our final project, since we are focusing on the adverse effect and the new lesion for the patients before or after treatment,  we are only going to use 3 of the 7 tables. Each row of each table represents a record for a patient with a corresponding `SUBJID`.
+
+- adsl   
+This table has 935 rows and 19 columns. It records each patient’s basic information(age, sex, weight, etc.), primary tumor type, and treatment.
+
+- adae   
+This table has 3211 rows and 7 columns. It records each patient’s adverse events type, System Organ Class(where adverse events happen), severity grade, and whether this is a continuing event.
+
+- adls   
+This table has 29118 rows and 11 columns. It records each patient’s visit day and information on any new lesions they have reported on that day, along with the reader’s information.
+
+### Motivation
+
+As we examined the dataset, we found that, during the treatment of the selected chemotherapy, new lesions or adverse events might occur to an individual. The occurrence of both two might result from the natural course of cancer or the toxicity of the chosen chemotherapy. However, the association between them is unknown. During the treatment, lesion diagnosis might be more expensive than detecting adverse events in participants. Therefore, we would like to investigate the potential association between the adverse event and lesion to know if the occurrence of an adverse event might indicate possible lesions when using the chosen chemotherapy in this clinical trial.
+
+## Research question
+
+In this study, instead of choosing the actual name of adverse events, we choose the variable of the location where adverse events happened, which is called “System Organ Class”. We think that the adverse events happened in the system organ class of “Skin and subcutaneous tissue disorders” and the lesion in the liver might be associated with the toxicity of the chosen chemotherapy since the liver is a crucial organ to process poisons in the body, and the skin system with active cell division activity is susceptible to the nature of chemotherapy that suppresses this activity. As a result, we would like to investigate if there exists an association between them. Therefore, We hypothesized that **a patient in the study who has a higher level of "Skin and subcutaneous tissue disorders” adverse effect would have a higher chance of getting new lesions during the treatment.**
+
+
+## Data cleaning and exploration
+
+## Analysis
+
+## Interpretation and conclusions
