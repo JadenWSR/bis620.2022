@@ -46,6 +46,26 @@ In this study, instead of choosing the actual name of adverse events, we choose 
 
 ## Data cleaning and exploration
 
+### Data cleaning
+
+- Joining the table
+
+Since our research question is about patients with "Skin and subcutaneous tissue disorders” adverse effects, and we want to see the variation in different severity levels, we filtered the `adae` table with AESOC = "Skin and subcutaneous tissue disorders", and dropped missing values in `AESEVCD`(severity levels). Then, we joined adae with adsl and adls table, by patients' `SUBJID`. This new dataset is saved as `lesion`.  
+
+- `LSSITE`   
+
+There were 1505 NA and 601 empty values in the LSSITE column in `lesion` dataset after joining the above three tables. This is because not all patients have a new lesion. We have replaced them with "None" before saving the .rda file and the resulting lesion data has no missing values.  
+
+```{r}
+data(lesion)
+print(sum(is.na(lesion$LSSITE)))
+print(sum(lesion$LSSITE == ""))
+```
+
+### Data preprocessing
+
+The data preprocessing steps are done in the data_processing() function. The user can input a specific LSSITE name they want to check along with the lesion data to the function, and get processed lesion data with 2 new columns added. The first added column is `new_ls`, which has two categories: the specific user input LSSITE, and `Other`. The second added column is `level`, which transferred the `AESEVCD` column into 2 categories. `level` = 'LOW' when `AESEVCD` = 1, and `level` = 'HIGH' for `AESEVCD` = 2, 3, or 4. After data preprocessing we should be able to check the variation in different `LSSITE` values. For example, if we want to check the lesion on the liver, we could preprocess the data with the following command: `data_processing(lesion, "Liver") `.
+
 ## Analysis
 
 ## Interpretation and conclusions
