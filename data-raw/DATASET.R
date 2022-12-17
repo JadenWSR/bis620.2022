@@ -24,4 +24,4 @@ lesion <- dl$adae %>% filter(AESOC == "Skin and subcutaneous tissue disorders",
 
 lesion$LSSITE[lesion$LSSITE == ""] <- "None"
 lesion$LSSITE[is.na(lesion$LSSITE)] <- "None"
-usethis::use_data(lesion, overwrite = TRUE)
+usethis::use_data(lesion, overwrite = TRUE, compress = "xz")
