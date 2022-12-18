@@ -14,8 +14,12 @@ logit_analysis <- function(x, lesion_site) {
   df <- x |>
     data_processing(lesion_name = lesion_site) |>
     select(ATRT, new_ls, level)
-  model <- glm(new_ls ~ ATRT * level, data = df, family = "binomial")
+  model <- glm(new_ls ~ level * ATRT, data = df, family = "binomial")
   print(paste("The lesion site you chosed is ", lesion_site, ".", sep = ""))
   print(summary(model))
-  plot(allEffects(model))
+  plot(allEffects(model), ylab = paste("Lesion Site: ", lesion_site,
+                                       " = 1; Other = 0",
+                                       sep = ""),
+       xlab = "Severity Level",
+       main = "Effect Plot")
 }

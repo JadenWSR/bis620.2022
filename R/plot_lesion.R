@@ -7,7 +7,7 @@
 #' @return a set of bar plots facet wrapped by ATRT and new_ls
 #' (result from the data_processing)
 #' @importFrom dplyr select group_by summarise
-#' @importFrom ggplot2 ggplot aes geom_col geom_text ylim facet_wrap
+#' @importFrom ggplot2 ggplot aes geom_col geom_text ylim facet_wrap labs
 #' position_dodge
 #' @examples
 #' data(lesion)
@@ -24,5 +24,6 @@ plot_lesion <- function(x, lesion_site) {
     geom_text(aes(label = count), position = position_dodge(width = 0.9),
               vjust = -0.25) +
     ylim(c(0, 40000)) +
+    labs(x = "Lesion Site") +
     facet_wrap(~ATRT + level)
 }

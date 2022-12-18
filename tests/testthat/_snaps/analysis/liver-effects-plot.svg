@@ -19,9 +19,9 @@
 </defs>
 <g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)'>
 <rect x='0.00' y='0.00' width='720.00' height='576.00' style='stroke-width: 0.75; stroke: none;' />
-<text x='360.00' y='15.91' text-anchor='middle' style='font-size: 14.40px; font-weight: bold; font-family: sans;' textLength='139.27px' lengthAdjust='spacingAndGlyphs'>ATRT*level effect plot</text>
-<text x='378.81' y='558.00' text-anchor='middle' style='font-size: 12.00px; font-family: sans;' textLength='31.33px' lengthAdjust='spacingAndGlyphs'>ATRT</text>
-<text transform='translate(20.26,293.03) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: sans;' textLength='37.36px' lengthAdjust='spacingAndGlyphs'>new_ls</text>
+<text x='360.00' y='15.91' text-anchor='middle' style='font-size: 14.40px; font-weight: bold; font-family: sans;' textLength='65.64px' lengthAdjust='spacingAndGlyphs'>Effect Plot</text>
+<text x='378.81' y='558.00' text-anchor='middle' style='font-size: 12.00px; font-family: sans;' textLength='75.38px' lengthAdjust='spacingAndGlyphs'>Severity Level</text>
+<text transform='translate(20.26,293.03) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: sans;' textLength='169.45px' lengthAdjust='spacingAndGlyphs'>Lesion Site: Liver = 1; Other = 0</text>
 </g>
 <defs>
   <clipPath id='cpNjYuNjJ8Mzc4LjgxfDY3LjU4fDUxOC40OA=='>
@@ -49,19 +49,19 @@
 <text x='55.28' y='86.61' text-anchor='end' style='font-size: 12.00px; font-family: sans;' textLength='23.36px' lengthAdjust='spacingAndGlyphs'>0.70</text>
 <line x1='85.79' y1='518.48' x2='85.79' y2='524.14' style='stroke-width: 0.75;' />
 <line x1='359.64' y1='518.48' x2='359.64' y2='524.14' style='stroke-width: 0.75;' />
-<text x='85.79' y='538.07' text-anchor='middle' style='font-size: 12.00px; font-family: sans;' textLength='80.71px' lengthAdjust='spacingAndGlyphs'>FOLFOX alone</text>
-<text x='359.64' y='538.07' text-anchor='middle' style='font-size: 12.00px; font-family: sans;' textLength='135.75px' lengthAdjust='spacingAndGlyphs'>Panitumumab + FOLFOX</text>
+<text x='85.79' y='538.07' text-anchor='middle' style='font-size: 12.00px; font-family: sans;' textLength='27.34px' lengthAdjust='spacingAndGlyphs'>LOW</text>
+<text x='359.64' y='538.07' text-anchor='middle' style='font-size: 12.00px; font-family: sans;' textLength='30.01px' lengthAdjust='spacingAndGlyphs'>HIGH</text>
 </g>
 <g clip-path='url(#cpNjYuNjJ8Mzc4LjgxfDY3LjU4fDUxOC40OA==)'>
 <line x1='85.79' y1='252.34' x2='85.79' y2='175.08' style='stroke-width: 0.75; stroke: #FF00FF;' />
 <polyline points='80.99,252.34 85.79,252.34 90.59,252.34 ' style='stroke-width: 0.75; stroke: #FF00FF;' />
 <polyline points='90.59,175.08 85.79,175.08 80.99,175.08 ' style='stroke-width: 0.75; stroke: #FF00FF;' />
-<line x1='359.64' y1='451.35' x2='359.64' y2='423.57' style='stroke-width: 0.75; stroke: #FF00FF;' />
-<polyline points='354.84,451.35 359.64,451.35 364.44,451.35 ' style='stroke-width: 0.75; stroke: #FF00FF;' />
-<polyline points='364.44,423.57 359.64,423.57 354.84,423.57 ' style='stroke-width: 0.75; stroke: #FF00FF;' />
+<line x1='359.64' y1='240.27' x2='359.64' y2='78.31' style='stroke-width: 0.75; stroke: #FF00FF;' />
+<polyline points='354.84,240.27 359.64,240.27 364.44,240.27 ' style='stroke-width: 0.75; stroke: #FF00FF;' />
+<polyline points='364.44,78.31 359.64,78.31 354.84,78.31 ' style='stroke-width: 0.75; stroke: #FF00FF;' />
 <circle cx='85.79' cy='213.71' r='2.40' style='stroke-width: 0.75; stroke: #0080FF;' />
-<circle cx='359.64' cy='437.46' r='2.40' style='stroke-width: 0.75; stroke: #0080FF;' />
-<polyline points='85.79,213.71 359.64,437.46 ' style='stroke-width: 0.75; stroke: #0080FF;' />
+<circle cx='359.64' cy='159.29' r='2.40' style='stroke-width: 0.75; stroke: #0080FF;' />
+<polyline points='85.79,213.71 359.64,159.29 ' style='stroke-width: 0.75; stroke: #0080FF;' />
 </g>
 <g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)'>
 <rect x='66.62' y='67.58' width='312.18' height='450.90' style='stroke-width: 0.75;' />
@@ -73,9 +73,9 @@
 </defs>
 <g clip-path='url(#cpNjYuNjJ8Mzc4LjgxfDUzLjE4fDY3LjU4)'>
 <rect x='66.62' y='53.18' width='312.18' height='14.40' style='stroke-width: 0.75; stroke: #FFE5CC; fill: #FFE5CC;' />
-<text x='221.39' y='64.51' text-anchor='middle' style='font-size: 12.00px; font-family: sans;' textLength='13.68px' lengthAdjust='spacingAndGlyphs'> = </text>
-<text x='214.55' y='64.51' text-anchor='end' style='font-size: 12.00px; font-family: sans;' textLength='24.68px' lengthAdjust='spacingAndGlyphs'>level</text>
-<text x='228.23' y='64.51' style='font-size: 12.00px; font-family: sans;' textLength='27.34px' lengthAdjust='spacingAndGlyphs'>LOW</text>
+<text x='198.03' y='64.51' text-anchor='middle' style='font-size: 12.00px; font-family: sans;' textLength='13.68px' lengthAdjust='spacingAndGlyphs'> = </text>
+<text x='191.19' y='64.51' text-anchor='end' style='font-size: 12.00px; font-family: sans;' textLength='31.33px' lengthAdjust='spacingAndGlyphs'>ATRT</text>
+<text x='204.87' y='64.51' style='font-size: 12.00px; font-family: sans;' textLength='80.71px' lengthAdjust='spacingAndGlyphs'>FOLFOX alone</text>
 </g>
 <g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)'>
 <rect x='66.62' y='53.18' width='312.18' height='14.40' style='stroke-width: 0.75;' />
@@ -90,8 +90,8 @@
 <g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)'>
 <line x1='397.98' y1='53.18' x2='397.98' y2='47.51' style='stroke-width: 0.75;' />
 <line x1='671.82' y1='53.18' x2='671.82' y2='47.51' style='stroke-width: 0.75;' />
-<text x='397.98' y='41.84' text-anchor='middle' style='font-size: 12.00px; font-family: sans;' textLength='80.71px' lengthAdjust='spacingAndGlyphs'>FOLFOX alone</text>
-<text x='671.82' y='41.84' text-anchor='middle' style='font-size: 12.00px; font-family: sans;' textLength='135.75px' lengthAdjust='spacingAndGlyphs'>Panitumumab + FOLFOX</text>
+<text x='397.98' y='41.84' text-anchor='middle' style='font-size: 12.00px; font-family: sans;' textLength='27.34px' lengthAdjust='spacingAndGlyphs'>LOW</text>
+<text x='671.82' y='41.84' text-anchor='middle' style='font-size: 12.00px; font-family: sans;' textLength='30.01px' lengthAdjust='spacingAndGlyphs'>HIGH</text>
 <line x1='397.98' y1='518.48' x2='397.98' y2='524.14' style='stroke-width: 0.75;' />
 <line x1='671.82' y1='518.48' x2='671.82' y2='524.14' style='stroke-width: 0.75;' />
 <line x1='690.99' y1='503.73' x2='696.66' y2='503.73' style='stroke-width: 0.75;' />
@@ -103,15 +103,15 @@
 <line x1='690.99' y1='82.48' x2='696.66' y2='82.48' style='stroke-width: 0.75;' />
 </g>
 <g clip-path='url(#cpMzc4LjgxfDY5MC45OXw2Ny41OHw1MTguNDg=)'>
-<line x1='397.98' y1='240.27' x2='397.98' y2='78.31' style='stroke-width: 0.75; stroke: #FF00FF;' />
-<polyline points='393.18,240.27 397.98,240.27 402.78,240.27 ' style='stroke-width: 0.75; stroke: #FF00FF;' />
-<polyline points='402.78,78.31 397.98,78.31 393.18,78.31 ' style='stroke-width: 0.75; stroke: #FF00FF;' />
+<line x1='397.98' y1='451.35' x2='397.98' y2='423.57' style='stroke-width: 0.75; stroke: #FF00FF;' />
+<polyline points='393.18,451.35 397.98,451.35 402.78,451.35 ' style='stroke-width: 0.75; stroke: #FF00FF;' />
+<polyline points='402.78,423.57 397.98,423.57 393.18,423.57 ' style='stroke-width: 0.75; stroke: #FF00FF;' />
 <line x1='671.82' y1='507.74' x2='671.82' y2='475.91' style='stroke-width: 0.75; stroke: #FF00FF;' />
 <polyline points='667.02,507.74 671.82,507.74 676.62,507.74 ' style='stroke-width: 0.75; stroke: #FF00FF;' />
 <polyline points='676.62,475.91 671.82,475.91 667.02,475.91 ' style='stroke-width: 0.75; stroke: #FF00FF;' />
-<circle cx='397.98' cy='159.29' r='2.40' style='stroke-width: 0.75; stroke: #0080FF;' />
+<circle cx='397.98' cy='437.46' r='2.40' style='stroke-width: 0.75; stroke: #0080FF;' />
 <circle cx='671.82' cy='491.83' r='2.40' style='stroke-width: 0.75; stroke: #0080FF;' />
-<polyline points='397.98,159.29 671.82,491.83 ' style='stroke-width: 0.75; stroke: #0080FF;' />
+<polyline points='397.98,437.46 671.82,491.83 ' style='stroke-width: 0.75; stroke: #0080FF;' />
 </g>
 <g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)'>
 <rect x='378.81' y='67.58' width='312.18' height='450.90' style='stroke-width: 0.75;' />
@@ -123,9 +123,9 @@
 </defs>
 <g clip-path='url(#cpMzc4LjgxfDY5MC45OXw1My4xOHw2Ny41OA==)'>
 <rect x='378.81' y='53.18' width='312.18' height='14.40' style='stroke-width: 0.75; stroke: #FFE5CC; fill: #FFE5CC;' />
-<text x='532.24' y='64.51' text-anchor='middle' style='font-size: 12.00px; font-family: sans;' textLength='13.68px' lengthAdjust='spacingAndGlyphs'> = </text>
-<text x='525.40' y='64.51' text-anchor='end' style='font-size: 12.00px; font-family: sans;' textLength='24.68px' lengthAdjust='spacingAndGlyphs'>level</text>
-<text x='539.08' y='64.51' style='font-size: 12.00px; font-family: sans;' textLength='30.01px' lengthAdjust='spacingAndGlyphs'>HIGH</text>
+<text x='482.69' y='64.51' text-anchor='middle' style='font-size: 12.00px; font-family: sans;' textLength='13.68px' lengthAdjust='spacingAndGlyphs'> = </text>
+<text x='475.85' y='64.51' text-anchor='end' style='font-size: 12.00px; font-family: sans;' textLength='31.33px' lengthAdjust='spacingAndGlyphs'>ATRT</text>
+<text x='489.53' y='64.51' style='font-size: 12.00px; font-family: sans;' textLength='135.75px' lengthAdjust='spacingAndGlyphs'>Panitumumab + FOLFOX</text>
 </g>
 <g clip-path='url(#cpMC4wMHw3MjAuMDB8MC4wMHw1NzYuMDA=)'>
 <rect x='378.81' y='53.18' width='312.18' height='14.40' style='stroke-width: 0.75;' />

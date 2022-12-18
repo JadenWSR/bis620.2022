@@ -12,10 +12,10 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   warning = FALSE,
-  error = FALSE, 
-  fig.width=6, 
-  fig.height=4
-)
+  error = FALSE,
+  fig.width = 7,
+  fig.height = 4
+  )
 ```
 
 
@@ -76,9 +76,9 @@ The data preprocessing steps are done in the data_processing() function. The use
 
 ### Data Exploration
 
-There are two treatment groups in this study. We consider "FOLFOX alone" as the control group and "Panitumumab + FOLFOX" as the treatment group. 
+There are two treatment groups in this study. We consider "FOLFOX alone" as the control group and "Panitumumab + FOLFOX" as the treatment group.  
 
-Since we would like to investigate the potential association between the adverse effect and the site of lesion occurred in the course of the clinical trial, we made the summary table as follows:
+Since we would like to investigate the potential association between the adverse effect and the site of the lesion that occurred in the course of the clinical trial, we made the summary table as follows:  
 
                                Blood and lymphatic system disorders 
                                                                   2 
@@ -103,18 +103,17 @@ Since we would like to investigate the potential association between the adverse
                                                  Vascular disorders 
                                                                  45 
                                                                  
-Because the majority type of adverse effect is "Skin and subcutaneous tissue disorders", we think that it would be interesting to examine the association between the location of lesion and the occurrence of "Skin and subcutaneous tissue disorders". The following is the summary of total counts of lesion sites that have occurred during this clinical trial. 
+Because the majority type of adverse effect is "Skin and subcutaneous tissue disorders", we think that it would be interesting to examine the association between the location of lesions and the severity level of "Skin and subcutaneous tissue disorders". The following is the summary of the total counts of lesion sites that have occurred during this clinical trial.  
 
 ```{r, echo=FALSE}
 knitr::kable(table(lesion |> select(LSSITE)), "simple")
 ```
 
-As we can see, it is very rare that lesions occurred in HENNT/Neck in this clinical trial. However, lesions that occur are usually found in sites like "Liver" and "Lymph Nodes". Therefore, in the following steps, we use plots and run tests to examine whether there is a significant difference of the number of lesion occurrence on a specific site within the control group (FOLDOX alone) and the experiment group (Panitumumab + FOLFOX). 
+As we can see, it is very rare that lesions occurred on HENNT/Neck in this clinical trial. However, lesions that occur are usually found in sites like "Liver" and "Lymph Nodes". Therefore, in the following steps, we use plots and tests to examine whether there is a significant difference in the number of lesions on a specific site within the control group (FOLFOX alone) and the treatment group (Panitumumab + FOLFOX).
 
+In the following, given a specific lesion site, we used the function `plot_lesion` to graph a side-by-side bar plot facet-wrapped by treatment (ATRT) and level of the adverse effect "Skin and subcutaneous tissue disorders" to check and compare the number of lesions found on this specific site.
 
-In the following, given a specific lesion site, we used the function `plot_lesion` to graph a side-by-side bar plot facet-wrapped by treatment (ATRT) and level of the "Skin and subcutaneous tissue disorders" adverse effect to check and compare the number of lesion found on this specific site. 
-
-We checked bat plots for all lesion sites to see if the ratio between the number of lesion occurred on this site is roughly different due to the level of "Skin and subcutaneous tissue disorders". 
+We checked bat plots for all lesion sites to see if the ratio between the number of lesions occurred on this site is roughly different due to the level of "Skin and subcutaneous tissue disorders". 
 
 **Similar Ratio**
 
@@ -122,27 +121,79 @@ We checked bat plots for all lesion sites to see if the ratio between the number
 plot_lesion(lesion, "Liver")
 ```
 
-This is the bar plot to check the number of lesions occurred on "Liver". As we can see, in both of the control group and treatment group, proportion of number of lesion occurred in "Liver" does not change from LOW level "Skin and subcutaneous tissue disorders" to HIGH level "Skin and subcutaneous tissue disorders". In the control group, the proportion of lesion occurred on "Liver" is around 67% of the total number of lesion occurred. In the experimental group, the proportion of lesion occurred on "Liver" is around 60% of the total number of lesion occurred. Therefore, the number of lesions that occur on "Liver" does not seem to be affected by the level of "Skin and subcutaneous tissue disorders" adverse effect. 
+This is the bar plot to check the number of lesions that occurred on "Liver". As we can see, in both the control group and treatment group, the proportion of the number of lesions that occurred in "Liver" does not change in LOW level "Skin and subcutaneous tissue disorders" and HIGH level "Skin and subcutaneous tissue disorders". In the control group, the proportion of lesions occurring on "Liver" is around 67% of the total number of lesions that occurred. In the treatment group, the proportion of lesions that occurred on "Liver" is around 60% of the total number of lesions that occurred. Therefore, the number of lesions that occur on "Liver" does not seem to be affected by the level of "Skin and subcutaneous tissue disorders" adverse effect.
+
 
 **Ratio Changed**
 
 ```{r}
 plot_lesion(lesion, "Pulmonary")
 ```
-This is the bar plot to check the number of lesions occurred on "Pulmonary". This is an example of changing ratio where the proportion of lesion occurred on "Pulmonary" decreases when the level of "Skin and subcutaneous tissue disorders" changes from LOW to HIGH. In this case, it seems that the number of Pulmonary lesion would decrease when the patient is having a HIGH level "Skin and subcutaneous tissue disorders". However, since it does not show if the effect is significant, we need a more rigorous test which is the logistic regression conducted in the Analysis section below. 
+
+This is the bar plot to check the number of lesions that occurred on "Pulmonary". This is an example of ratio changing where the proportion of lesions occurring on "Pulmonary" decreases when the level of "Skin and subcutaneous tissue disorders" changes from LOW to HIGH. In this case, it seems that the number of Pulmonary lesions would decrease when the patient is having a HIGH level of "Skin and subcutaneous tissue disorders". However, since it does not show if the effect is significant, we need a more rigorous test which is the logistic regression conducted in the Analysis section below. 
 
 
 ## Analysis
 
-```{r}
+After investigating through all possible lesion sites, the results can be breakdown into the following four cases:  
 
+### Case 1: Treatment and the interaction term are both statistically significant. The severity level is not statistically significant. 
+
+```{r}
+logit_analysis(lesion, "Liver")
+```
+
+### Case 2: Treatment is statistically significant. Neither the severity level nor the interaction term is statistically significant.  
+
+```{r}
+logit_analysis(lesion, "Lymph Nodes")
+```
+
+### Case 3: The severity level, treatment, and interaction term are all statistically significant. The coefficient for high level is negative.
+
+```{r}
+logit_analysis(lesion, "Pulmonary")
+```
+
+### Case 4: The severity level, treatment, and interaction term are all statistically significant. The coefficient for high level is positive
+
+```{r}
+logit_analysis(lesion, "Gastrointestinal")
 ```
 
 
 ## Interpretation and conclusions
 
+### Interpretation
 
+First, let's interpret the results in parts:
 
+- **Treatment is statistically significant:** The treatment is associated with the number of lesions on a specific site. There is a statistically significant difference in the number of lesions on a specific site between the control group and the treatment group.
 
+  + **The interaction term is statistically significant:** Given the fact that the treatment is associated with the number of lesions on a specific site,  compared with patients with a lower level of "Skin and subcutaneous tissue disorders” adverse effect, patients who have a higher level of "Skin and subcutaneous tissue disorders” adverse effect would have a statistically significant different number of lesions on this specific site.
+
+  **Note that we need to make sure treatment is significant before looking at the interaction term, and we assume there’s no such situation that treatment is not significant but the interaction term is significant.**
+
+- **The severity level is statistically significant:** The severity level of "Skin and subcutaneous tissue disorders” adverse effect is associated with the number of lesions on a specific site.
+
+  + **The coefficient of severity level is positive:** The higher the severity level, the higher the number of lesions on a specific site.
+  
+  + **The coefficient of severity level is negative:** The higher the severity level, the lower the number of lesions on a specific site.
+  
+Next, combine them together and interpret different cases.
+
+- Case 1: The treatment is **associated with** the number of lesions on a specific site, however the severity level of "Skin and subcutaneous tissue disorders” adverse effect and the treatment is **not associated with** the number of lesions on a specific site.
+
+- Case 2: **Neither** the treatment **nor** the severity level of "Skin and subcutaneous tissue disorders” adverse effect **is associated with** the number of lesions on a specific site.
+
+- Case 3: The severity level of "Skin and subcutaneous tissue disorders” adverse effect and the treatment are **both associated with** the number of lesions on a specific site. The higher the severity level, the **higher** the number of lesions on a specific site.
+
+- Case 4: The severity level of "Skin and subcutaneous tissue disorders” adverse effect and the treatment are **both associated with** the number of lesions on a specific site. The higher the severity level, the **lower** the number of lesions on a specific site.
+
+### Conclusion
+
+According to the above interpretations, a higher level of "Skin and subcutaneous tissue disorders” adverse effect does not necessarily associate with a higher number of lesions on this specific site. It is possible that, given a specific lesion site, a higher level of "Skin and subcutaneous tissue disorders” adverse effect is significantly associated with a lower number of lesions observed on this site. It is also possible that the number of lesions is only associated with the treatment and is not associated with the level of  "Skin and subcutaneous tissue disorders” adverse effect. Moreover, there are cases that neither the treatment nor the level of "Skin and subcutaneous tissue disorders” adverse effect, is associated with the number of lesions observed on a specific site.
+
+In conclusion, our hypothesis is not comprehensive but partially correct.
 
 
