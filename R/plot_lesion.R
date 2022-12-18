@@ -19,10 +19,10 @@ plot_lesion <- function(x, lesion_site) {
     select(ATRT, LSSITE, new_ls, level) |>
     group_by(ATRT, level, new_ls) |>
     summarise(count = dplyr::n()) |>
-    ggplot(aes(x = level, y = count)) +
+    ggplot(aes(x = new_ls, y = count)) +
     geom_col() +
     geom_text(aes(label = count), position = position_dodge(width = 0.9),
               vjust = -0.25) +
     ylim(c(0, 40000)) +
-    facet_wrap(~ATRT + new_ls)
+    facet_wrap(~ATRT + level)
 }
