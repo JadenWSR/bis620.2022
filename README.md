@@ -65,7 +65,7 @@ head(lesion)
 #> #   and abbreviated variable names ¹​LSNEWANY, ²​LSREADER
 ```
 
-### Preprocess the panitumumab lesion data
+### Preprocess the Panitumumab lesion data
 
 ``` r
 liver <- data_processing(lesion, "Liver")
@@ -93,7 +93,7 @@ logit_analysis(lesion, "Liver")
 #> [1] "The lesion site you chosed is Liver."
 #> 
 #> Call:
-#> glm(formula = new_ls ~ ATRT * level, family = "binomial", data = df)
+#> glm(formula = new_ls ~ level * ATRT, family = "binomial", data = df)
 #> 
 #> Deviance Residuals: 
 #>    Min      1Q  Median      3Q     Max  
@@ -102,9 +102,9 @@ logit_analysis(lesion, "Liver")
 #> Coefficients:
 #>                                    Estimate Std. Error z value Pr(>|z|)    
 #> (Intercept)                         0.68390    0.02454  27.866   <2e-16 ***
-#> ATRTPanitumumab + FOLFOX           -0.27860    0.02608 -10.682   <2e-16 ***
 #> levelHIGH                           0.06776    0.05700   1.189   0.2346    
-#> ATRTPanitumumab + FOLFOX:levelHIGH -0.13545    0.05856  -2.313   0.0207 *  
+#> ATRTPanitumumab + FOLFOX           -0.27860    0.02608 -10.682   <2e-16 ***
+#> levelHIGH:ATRTPanitumumab + FOLFOX -0.13545    0.05856  -2.313   0.0207 *  
 #> ---
 #> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #> 

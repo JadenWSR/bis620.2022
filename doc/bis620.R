@@ -8,11 +8,11 @@ knitr::opts_chunk$set(
   fig.height = 4
   )
 
-## ----setup--------------------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 library(bis620.2022)
+library(dplyr)
 
 ## -----------------------------------------------------------------------------
-devtools::load_all()
 data(lesion)
 print(sum(is.na(lesion$LSSITE)))
 print(sum(lesion$LSSITE == ""))

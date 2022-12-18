@@ -52,7 +52,7 @@ data(lesion)
 head(lesion)
 ```
 
-### Preprocess the panitumumab lesion data
+### Preprocess the Panitumumab lesion data
 
 ```{r}
 liver <- data_processing(lesion, "Liver")

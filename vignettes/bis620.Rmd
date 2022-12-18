@@ -19,8 +19,9 @@ knitr::opts_chunk$set(
 ```
 
 
-```{r setup}
+```{r include = FALSE}
 library(bis620.2022)
+library(dplyr)
 ```
 
 ## Team Members
@@ -63,7 +64,6 @@ Since our research question is about patients with "Skin and subcutaneous tissue
 There were 1505 NA and 601 empty values in the LSSITE column in `lesion` dataset after joining the above three tables. This is because not all patients have a new lesion. We have replaced them with "None" before saving the .rda file and the resulting lesion data has no missing values.  
 
 ```{r}
-devtools::load_all()
 data(lesion)
 print(sum(is.na(lesion$LSSITE)))
 print(sum(lesion$LSSITE == ""))
