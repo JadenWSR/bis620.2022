@@ -8,7 +8,7 @@ test_that(
 )
 
 test_that(
-  "The data_lesion errors when x is not the lesion dataset",
+  "The plot_lesion() errors when x is not the lesion dataset",
   {
     data(iris)
     expect_error(plot_lesion(iris, "Liver"))
@@ -16,7 +16,7 @@ test_that(
 )
 
 test_that(
-  "The data_lesion errors when lesion_nxame is invalid",
+  "The plot_lesion() errors when lesion_site is invalid",
   {
     data(lesion)
     lesion_site <- "leg"
