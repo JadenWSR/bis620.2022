@@ -11,6 +11,18 @@
 [![codecov](https://codecov.io/gh/JadenWSR/bis620.2022/branch/main/graph/badge.svg?token=YSM7UN1LKF)](https://codecov.io/gh/JadenWSR/bis620.2022)
 <!-- badges: end -->
 
+**Final Project**  
+The goal of bis620.2022 is to provide functions for the users to acquire
+and preprocess the panitumumab lesion data, make a side-by-side
+facet-wrapped bar plot, and perform logistic regression analysis on the
+data to answer the research question.
+
+**Research Question**  
+We hypothesized that **a patient in the study who has a higher level of
+“Skin and subcutaneous tissue disorders” adverse effect would have a
+higher chance of getting new lesions during the treatment.**
+
+**Homework 3**  
 The goal of bis620.2022 is to provide functions for the users to acquire
 UKBiobank accelerometry data, get the spectral signature for the data
 with three dimensions using Fast Fourier Transform (FFT) and visualize
@@ -26,11 +38,88 @@ You can install the development version of bis620.2022 from
 devtools::install_github("JadenWSR/bis620.2022")
 ```
 
-## Examples
+## Examples Final Project
 
 ``` r
 library(bis620.2022)
 ```
+
+### Get the panitumumab lesion data
+
+``` r
+data(lesion)
+head(lesion)
+#> # A tibble: 6 × 30
+#>   SUBJID AESEVCD VISITDY VISIT    LSCAT LSNEW LSSLD  LSLD LSSITE LSNEW…¹ LSREA…²
+#>   <chr>    <dbl>   <dbl> <chr>    <chr> <chr> <dbl> <dbl> <chr>  <chr>   <chr>  
+#> 1 000003       1     -11 Screeni… Targ… N       118    39 Liver  N       Radiol…
+#> 2 000003       1     -11 Screeni… Targ… N        65    35 Liver  N       Radiol…
+#> 3 000003       1     -11 Screeni… Targ… N       118    28 Liver  N       Radiol…
+#> 4 000003       1     -11 Screeni… Targ… N        65    30 Liver  N       Radiol…
+#> 5 000003       1     -11 Screeni… Targ… N       118    51 Other  N       Radiol…
+#> 6 000003       1     -11 Screeni… Non-… N        NA    NA Lymph… N       Radiol…
+#> # … with 19 more variables: LSTYPE <chr>, TRT <chr>, ATRT <chr>, PRSURG <chr>,
+#> #   DTHDY <dbl>, DTH <dbl>, PFSDYCR <dbl>, PFSCR <dbl>, LIVERMET <chr>,
+#> #   DIAGMONS <dbl>, AGE <dbl>, SEX <chr>, B_WEIGHT <dbl>, B_HEIGHT <dbl>,
+#> #   RACE <chr>, B_ECOG <chr>, HISSUBTY <chr>, B_METANM <dbl>, DIAGTYPE <chr>,
+#> #   and abbreviated variable names ¹​LSNEWANY, ²​LSREADER
+```
+
+### Preprocess the panitumumab lesion data
+
+``` r
+liver <- data_processing(lesion, "Liver")
+# Check newly added columns
+print(head(liver$new_ls))
+#> [1] Liver Liver Liver Liver Other Other
+#> Levels: Other Liver
+print(head(liver$level))
+#> [1] LOW LOW LOW LOW LOW LOW
+#> Levels: LOW HIGH
+```
+
+### Make a side-by-side facet-wrapped bar plot
+
+``` r
+plot_lesion(lesion, "Liver")
+```
+
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
+
+### Perform Analysis
+
+``` r
+logit_analysis(lesion, "Liver")
+#> [1] "The lesion site you chosed is Liver."
+#> 
+#> Call:
+#> glm(formula = new_ls ~ ATRT * level, family = "binomial", data = df)
+#> 
+#> Deviance Residuals: 
+#>    Min      1Q  Median      3Q     Max  
+#> -1.509  -1.324   1.011   1.011   1.038  
+#> 
+#> Coefficients:
+#>                                    Estimate Std. Error z value Pr(>|z|)    
+#> (Intercept)                         0.68390    0.02454  27.866   <2e-16 ***
+#> ATRTPanitumumab + FOLFOX           -0.27860    0.02608 -10.682   <2e-16 ***
+#> levelHIGH                           0.06776    0.05700   1.189   0.2346    
+#> ATRTPanitumumab + FOLFOX:levelHIGH -0.13545    0.05856  -2.313   0.0207 *  
+#> ---
+#> Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#> 
+#> (Dispersion parameter for binomial family taken to be 1)
+#> 
+#>     Null deviance: 138601  on 102944  degrees of freedom
+#> Residual deviance: 138377  on 102941  degrees of freedom
+#> AIC: 138385
+#> 
+#> Number of Fisher Scoring iterations: 4
+```
+
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+
+## Examples Homework 3
 
 ### Get UKBiobank accelerometry data
 
@@ -56,7 +145,7 @@ This function plots UKBiobank accelerometry data.
 accel_plot(ukb_accel[1:1000,])
 ```
 
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
 ### spectral_signature()
 
@@ -86,4 +175,4 @@ ukb_accel[1:1000,] |> spectral_signature(take_log = T)
 ukb_accel[1:1000,] |> spectral_signature(take_log = T) |> accel_plot()
 ```
 
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />

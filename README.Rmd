@@ -22,6 +22,13 @@ knitr::opts_chunk$set(
 [![codecov](https://codecov.io/gh/JadenWSR/bis620.2022/branch/main/graph/badge.svg?token=YSM7UN1LKF)](https://codecov.io/gh/JadenWSR/bis620.2022)
 <!-- badges: end -->
 
+**Final Project**  
+The goal of bis620.2022 is to provide functions for the users to acquire and preprocess the panitumumab lesion data, make a side-by-side facet-wrapped bar plot, and perform logistic regression analysis on the data to answer the research question.
+
+**Research Question**  
+We hypothesized that **a patient in the study who has a higher level of "Skin and subcutaneous tissue disorders” adverse effect would have a higher chance of getting new lesions during the treatment.**
+
+**Homework 3**  
 The goal of bis620.2022 is to provide functions for the users to acquire UKBiobank accelerometry data, get the spectral signature for the data with three dimensions using Fast Fourier Transform (FFT) and visualize the resulting times-series/frequency data.
 
 ## Installation
@@ -32,11 +39,42 @@ You can install the development version of bis620.2022 from [GitHub](https://git
 # install.packages("devtools")
 devtools::install_github("JadenWSR/bis620.2022")
 ```
-## Examples
+## Examples Final Project
 
 ```{r}
 library(bis620.2022)
 ```
+
+### Get the panitumumab lesion data
+
+```{r}
+data(lesion)
+head(lesion)
+```
+
+### Preprocess the panitumumab lesion data
+
+```{r}
+liver <- data_processing(lesion, "Liver")
+# Check newly added columns
+print(head(liver$new_ls))
+print(head(liver$level))
+```
+
+### Make a side-by-side facet-wrapped bar plot
+
+```{r}
+plot_lesion(lesion, "Liver")
+```
+
+### Perform Analysis
+
+```{r}
+logit_analysis(lesion, "Liver")
+```
+
+
+## Examples Homework 3
 
 ### Get UKBiobank accelerometry data
 
